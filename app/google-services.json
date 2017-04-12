@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "176705878915",
+    "project_id": "firebase-gonegative"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:176705878915:android:7ce22e9252830ed3",
+        "android_client_info": {
+          "package_name": "com.va.shabbirhussain.gonegative"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "176705878915-b2l81l659lisitlvdifpnlb7aa8c5fqu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.va.shabbirhussain.gonegative",
+            "certificate_hash": "d211ef8be2d640ef53518bba100b5ef3bdc96715"
+          }
+        },
+        {
+          "client_id": "176705878915-3an75nmbdnt0ovkdeuqmjfte36g81bb8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUZbIuTw38jYT5HGYrRCJsdkXkv0_BSG0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
