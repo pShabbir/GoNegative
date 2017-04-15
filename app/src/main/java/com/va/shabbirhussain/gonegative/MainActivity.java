@@ -17,6 +17,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
 
 public class MainActivity extends AppCompatActivity implements
         GoogleApiClient.OnConnectionFailedListener,View.OnClickListener {
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements
     private GoogleApiClient mGoogleApiClient;
     private static final String TAG = "SignInActivity";
     private static final int RC_SIGN_IN = 9001;
+    SharedPreferences.Editor editor;
 
     Boolean isFirstTime;
     @Override
@@ -53,11 +56,12 @@ public class MainActivity extends AppCompatActivity implements
         // [END customize_button]
 
         findViewById(R.id.sign_in_button).setOnClickListener(this);
+        findViewById(R.id.sign_out_button).setOnClickListener(this);
 
         SharedPreferences app_preferences = PreferenceManager
                 .getDefaultSharedPreferences(MainActivity.this);
 
-        SharedPreferences.Editor editor = app_preferences.edit();
+         editor = app_preferences.edit();
 
         isFirstTime = app_preferences.getBoolean("isFirstTime", true);
         if(isFirstTime){
@@ -80,6 +84,9 @@ public class MainActivity extends AppCompatActivity implements
                 signIn();
                 break;
             // ...
+            case R.id.sign_out_button:
+                signOut();
+                break;
         }
     }
 
@@ -120,6 +127,20 @@ public class MainActivity extends AppCompatActivity implements
         }
     }
 
+    // [START signOut]
+    private void signOut() {
+        Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
+                new ResultCallback<Status>() {
+                    @Override
+                    public void onResult(Status status) {
+                        // [START_EXCLUDE]
+                        editor.putBoolean("isFirstTime", true);
+                        editor.commit();
+                        // [END_EXCLUDE]
+                    }
+                });
+    }
+    // [END signOut]
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 

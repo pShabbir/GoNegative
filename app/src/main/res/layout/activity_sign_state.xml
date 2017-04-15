@@ -33,4 +33,13 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="107dp"
         app:srcCompat="@color/colorPrimary" />
+
+    <EditText
+        android:id="@+id/error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/email"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="36dp"
+        android:text="TextView" />
 </RelativeLayout>
